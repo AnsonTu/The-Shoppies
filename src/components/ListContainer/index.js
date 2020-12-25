@@ -25,7 +25,7 @@ const ListContainer = (props) => {
 
   return (
     <Grid item container xs={12} justify="center">
-      <Paper className={classes.paper} elevation="12">
+      <Paper className={classes.paper} elevation={12}>
         <Grid container justify="center">
           {nominees.length < 5 ? (
             <Alert className={classes.alert} severity="info">
