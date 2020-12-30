@@ -26,22 +26,24 @@ const MoviesList = (props) => {
   const classes = useStyle();
   const { movies, nominees, setNominees } = props;
 
-  const addNominee = () => {};
-
   return (
     <Paper className={classes.paper} variant="outlined">
       <Typography className={classes.title}>List of Movies</Typography>
       <Divider />
       <Grid container justify="center">
         <div className={classes.cardContainer}>
-          {movies.map((movie) => (
-            <MovieCard
-              movie={movie}
-              nominees={nominees}
-              numOfNominees={nominees.length}
-              addNominee={addNominee}
-            />
-          ))}
+          {movies &&
+            movies.map(
+              (movie) =>
+                movie.Type === "movie" && (
+                  <MovieCard
+                    key={`movie-${movie.imdbID}`}
+                    movie={movie}
+                    nominees={nominees}
+                    setNominees={setNominees}
+                  />
+                )
+            )}
         </div>
       </Grid>
     </Paper>

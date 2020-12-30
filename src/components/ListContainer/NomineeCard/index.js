@@ -36,15 +36,19 @@ const useStyle = makeStyles({
 
 const NomineeCard = (props) => {
   const classes = useStyle();
-  const { movie, removeNominee } = props;
+  const { movie, nominees, setNominees } = props;
+
+  const removeNominee = () => {
+    setNominees(nominees.filter((nominee) => nominee.imdbID !== movie.imdbID));
+  };
 
   return (
     <Card className={classes.card}>
       <Typography className={classes.movieInfo}>
-        Title: {movie && movie.title}
+        Title: {movie && movie.Title}
       </Typography>
       <Typography className={classes.movieInfo}>
-        Year: {movie && movie.year}
+        Year: {movie && movie.Year}
       </Typography>
       <Button className={classes.button} onClick={removeNominee}>
         <CancelIcon className={classes.buttonIcon} />

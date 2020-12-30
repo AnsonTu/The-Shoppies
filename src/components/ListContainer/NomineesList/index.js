@@ -26,17 +26,21 @@ const NomineesList = (props) => {
   const classes = useStyle();
   const { nominees, setNominees } = props;
 
-  const removeNominee = () => {};
-
   return (
     <Paper className={classes.paper} variant="outlined">
       <Typography className={classes.title}>List of Nominees</Typography>
       <Divider />
       <Grid container justify="center">
         <div className={classes.cardContainer}>
-          {nominees.map((movie) => (
-            <NomineeCard movie={movie} removeNominee={removeNominee} />
-          ))}
+          {nominees &&
+            nominees.map((movie) => (
+              <NomineeCard
+                key={`nominee-${movie.imdbID}`}
+                movie={movie}
+                nominees={nominees}
+                setNominees={setNominees}
+              />
+            ))}
         </div>
       </Grid>
     </Paper>
