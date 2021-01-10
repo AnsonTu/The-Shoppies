@@ -41,8 +41,7 @@ const LinkGenerator = (props) => {
     for (let i = 1; i < nomineeIds.length; i++) {
       url += `&id[]=${nomineeIds[i]}`;
     }
-    // TODO: Change to use ENV host
-    setLink(`http://localhost:3000/${url}`);
+    setLink(`${window.location.origin}/${url}`);
   };
 
   const copyToClipBoard = () => {

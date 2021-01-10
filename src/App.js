@@ -13,7 +13,6 @@ function App() {
   const nomineeIds = queryString.parse(location.search, {
     arrayFormat: "bracket"
   })["id"];
-  console.log(nomineeIds);
 
   useEffect(() => {
     let urls = [];
@@ -25,7 +24,8 @@ function App() {
       let requests = urls.map((url) => fetch(url));
       Promise.all(requests)
         .then((response) => Promise.all(response.map((r) => r.json())))
-        .then(async (data) => setNominees(data));
+        .then(async (data) => setNominees(data))
+        .catch((err) => console.error(err));
     }
   }, []);
 
