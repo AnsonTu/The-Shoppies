@@ -44,7 +44,7 @@ const SearchBar = (props) => {
   };
 
   const searchMovies = () => {
-    fetch(`http://www.omdbapi.com/?s=${movieTitle}&apikey=211458f`)
+    fetch(`https://www.omdbapi.com/?s=${movieTitle}&apikey=211458f`)
       .then((response) => response.json())
       .then((data) => setMovies(data.Search))
       .catch((err) => console.error(err));

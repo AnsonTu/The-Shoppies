@@ -19,7 +19,7 @@ function App() {
 
     if (nomineeIds) {
       for (let i = 0; i < nomineeIds.length; i++) {
-        urls.push(`http://www.omdbapi.com/?i=${nomineeIds[i]}&apikey=211458f`);
+        urls.push(`https://www.omdbapi.com/?i=${nomineeIds[i]}&apikey=211458f`);
       }
       let requests = urls.map((url) => fetch(url));
       Promise.all(requests)
