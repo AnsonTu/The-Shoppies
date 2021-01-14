@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -43,6 +42,12 @@ const SearchBar = (props) => {
     setMovieTitle(event.target.value);
   };
 
+  const searchMoviesWithKey = (event) => {
+    if (event.key === "Enter") {
+      searchMovies();
+    }
+  };
+
   const searchMovies = () => {
     fetch(`https://www.omdbapi.com/?s=${movieTitle}&apikey=211458f`)
       .then((response) => response.json())
@@ -55,22 +60,17 @@ const SearchBar = (props) => {
       <Typography className={classes.title}>
         Search for your favourite movies and nominate them!
       </Typography>
-      <Grid item container className={classes.searchComponents}>
-        <TextField
-          className={classes.searchField}
-          variant="outlined"
-          size="small"
-          onChange={handleTitleChange}
-        />
-        <Button
-          className={classes.searchButton}
-          variant="contained"
-          onClick={searchMovies}
-        >
-          <SearchIcon />
-          Search
-        </Button>
-      </Grid>
+      <TextField
+        className={classes.searchField}
+        variant="outlined"
+        size="small"
+        onChange={handleTitleChange}
+        onKeyDown={searchMoviesWithKey}
+      />
+      <Button className={classes.searchButton} onClick={searchMovies}>
+        <SearchIcon />
+        Search
+      </Button>
     </Paper>
   );
 };
