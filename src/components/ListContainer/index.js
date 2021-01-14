@@ -1,10 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Alert from "@material-ui/lab/Alert";
 import MoviesList from "./MoviesList";
 import NomineesList from "./NomineesList";
+import useModal from "../useModal";
+
+const PosterModal = React.lazy(() => import("../PosterModal"));
 
 const useStyle = makeStyles({
   paper: {
@@ -22,6 +25,13 @@ const useStyle = makeStyles({
 const ListContainer = (props) => {
   const classes = useStyle();
   const { movies, nominees, setNominees } = props;
+  const {
+    isOpen,
+    handleOpenModal,
+    handleCloseModal,
+    poster,
+    handleNewPoster
+  } = useModal();
 
   return (
     <Paper className={classes.paper} elevation={12}>
@@ -40,11 +50,27 @@ const ListContainer = (props) => {
             movies={movies}
             nominees={nominees}
             setNominees={setNominees}
+            handleOpenModal={handleOpenModal}
+            handleNewPoster={handleNewPoster}
           />
         </Grid>
         <Grid item container xs={6} alignItems="center" justify="center">
-          <NomineesList nominees={nominees} setNominees={setNominees} />
+          <NomineesList
+            nominees={nominees}
+            setNominees={setNominees}
+            handleOpenModal={handleOpenModal}
+            handleNewPoster={handleNewPoster}
+          />
         </Grid>
+        {isOpen && (
+          <Suspense fallback={null}>
+            <PosterModal
+              isOpen={isOpen}
+              handleCloseModal={handleCloseModal}
+              poster={poster}
+            />
+          </Suspense>
+        )}
       </Grid>
     </Paper>
   );
