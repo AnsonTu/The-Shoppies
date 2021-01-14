@@ -8,14 +8,14 @@ import CancelIcon from "@material-ui/icons/Cancel";
 const useStyle = makeStyles({
   card: {
     width: "400px",
-    height: "115px",
+    height: "116px",
     margin: "12px 10px",
     backgroundColor: "#F0E3B1"
   },
   movieInfo: {
     maxWidth: "380px",
-    marginTop: "6px",
-    marginLeft: "10px",
+    marginTop: "8px",
+    marginLeft: "12px",
     textOverflow: "ellipsis",
     overflow: "hidden",
     whiteSpace: "nowrap"

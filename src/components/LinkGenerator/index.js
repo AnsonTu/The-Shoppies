@@ -6,6 +6,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
+import LinkIcon from "@material-ui/icons/Link";
 
 const useStyle = makeStyles({
   paper: {
@@ -16,17 +17,21 @@ const useStyle = makeStyles({
     alignItems: "center"
   },
   linkField: {
-    width: "820px",
+    width: "765px",
     marginLeft: "14px"
   },
   copyButton: {
     marginRight: "-16px"
   },
   linkButton: {
-    width: "150px",
+    width: "185px",
+    marginLeft: "20px",
     textTransform: "none",
     fontSize: "18px",
     backgroundColor: "#6EC9EB"
+  },
+  linkIcon: {
+    marginRight: "8px"
   }
 });
 
@@ -69,6 +74,7 @@ const LinkGenerator = (props) => {
         value={link}
       />
       <Button className={classes.linkButton} onClick={generateLink}>
+        <LinkIcon className={classes.linkIcon} />
         Generate Link
       </Button>
     </Paper>

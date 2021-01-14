@@ -9,7 +9,7 @@ import MovieCard from "../MovieCard";
 const useStyle = makeStyles({
   paper: {
     width: "450px",
-    height: "450px",
+    height: "455px",
     backgroundColor: "#E0BB14"
   },
   title: {
@@ -17,8 +17,7 @@ const useStyle = makeStyles({
     margin: "8px 0 8px 10px"
   },
   cardContainer: {
-    maxHeight: "400px",
-    overflowY: "auto"
+    maxHeight: "400px"
   }
 });
 
@@ -30,7 +29,7 @@ const MoviesList = (props) => {
     <Paper className={classes.paper} variant="outlined">
       <Typography className={classes.title}>List of Movies</Typography>
       <Divider />
-      <Grid container justify="center">
+      <Grid container justify="center" style={{ overflowY: "auto" }}>
         <div className={classes.cardContainer}>
           {movies &&
             movies.map(

@@ -9,11 +9,11 @@ import NomineesList from "./NomineesList";
 const useStyle = makeStyles({
   paper: {
     width: "1000px",
-    height: "550px",
+    height: "560px",
     marginTop: "40px"
   },
   alert: {
-    width: "900px",
+    width: "920px",
     margin: "16px 0",
     fontSize: "18px"
   }
@@ -35,14 +35,14 @@ const ListContainer = (props) => {
             5 movies have been nominated!
           </Alert>
         )}
-        <Grid item container sm={6} alignItems="center" justify="center">
+        <Grid item container xs={6} alignItems="center" justify="center">
           <MoviesList
             movies={movies}
             nominees={nominees}
             setNominees={setNominees}
           />
         </Grid>
-        <Grid item container sm={6} alignItems="center" justify="center">
+        <Grid item container xs={6} alignItems="center" justify="center">
           <NomineesList nominees={nominees} setNominees={setNominees} />
         </Grid>
       </Grid>
