@@ -34,17 +34,15 @@ function App() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "#0E72B5" }}>
-      <PageContainer>
-        <SearchBar setMovies={setMovies} />
-        <ListContainer
-          movies={movies}
-          nominees={nominees}
-          setNominees={setNominees}
-        />
-        <LinkGenerator nominees={nominees} />
-      </PageContainer>
-    </div>
+    <PageContainer>
+      <SearchBar setMovies={setMovies} />
+      <ListContainer
+        movies={movies}
+        nominees={nominees}
+        setNominees={setNominees}
+      />
+      <LinkGenerator nominees={nominees} />
+    </PageContainer>
   );
 }
 
