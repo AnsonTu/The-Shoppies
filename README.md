@@ -8,3 +8,4 @@ Developed by Anson Tu
 - Search for your favourite movies
 - Nominate up to five movies
 - Generate a link and share your nominees with your friends
+- [Demo](https://serene-garden-49707.herokuapp.com/)
