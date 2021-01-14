@@ -12,7 +12,7 @@ const useStyle = makeStyles({
   paper: {
     width: "1000px",
     height: "75px",
-    marginTop: "40px",
+    marginTop: "30px",
     display: "flex",
     alignItems: "center"
   },

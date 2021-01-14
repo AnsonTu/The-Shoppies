@@ -10,7 +10,7 @@ const useStyle = makeStyles({
   paper: {
     width: "900px",
     height: "120px",
-    marginTop: "50px"
+    marginTop: "30px"
   },
   title: {
     margin: "15px 20px",

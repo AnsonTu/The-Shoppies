@@ -13,7 +13,7 @@ const useStyle = makeStyles({
   paper: {
     width: "1000px",
     height: "560px",
-    marginTop: "40px"
+    marginTop: "30px"
   },
   alert: {
     width: "920px",
@@ -42,7 +42,7 @@ const ListContainer = (props) => {
           </Alert>
         ) : (
           <Alert className={classes.alert} severity="success">
-            5 movies have been nominated!
+            5 movies have been nominated! Thank you for participating!
           </Alert>
         )}
         <Grid item container xs={6} alignItems="center" justify="center">
