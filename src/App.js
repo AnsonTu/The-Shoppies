@@ -5,6 +5,7 @@ import PageContainer from "./components/PageContainer";
 import SearchBar from "./components/SearchBar";
 import ListContainer from "./components/ListContainer";
 import LinkGenerator from "./components/LinkGenerator";
+import GitHubButton from "./components/GitHubButton";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -42,6 +43,7 @@ function App() {
         setNominees={setNominees}
       />
       <LinkGenerator nominees={nominees} />
+      <GitHubButton />
     </PageContainer>
   );
 }

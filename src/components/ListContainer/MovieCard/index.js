@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import EmojiEventsIcon from "@material-ui/icons/EmojiEvents";
@@ -23,7 +24,8 @@ const useStyle = makeStyles({
     whiteSpace: "nowrap"
   },
   avatar: {
-    marginLeft: "14px"
+    marginLeft: "14px",
+    padding: "0px"
   },
   button: {
     marginRight: "14px",
@@ -65,11 +67,9 @@ const MovieCard = (props) => {
         Year: {movie && movie.Year}
       </Typography>
       <Grid container justify="space-between" style={{ marginTop: "8px" }}>
-        <Avatar
-          className={classes.avatar}
-          src={movie.Poster}
-          onClick={openPoster}
-        />
+        <IconButton className={classes.avatar} onClick={openPoster}>
+          <Avatar src={movie.Poster} />
+        </IconButton>
         {!(
           nominees.length === 5 ||
           nominees.map((nominee) => nominee.imdbID).indexOf(movie.imdbID) > -1
