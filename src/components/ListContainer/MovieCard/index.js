@@ -8,14 +8,14 @@ import EmojiEventsIcon from "@material-ui/icons/EmojiEvents";
 const useStyle = makeStyles({
   card: {
     width: "400px",
-    height: "115px",
+    height: "116px",
     margin: "12px 10px",
     backgroundColor: "#F0E3B1"
   },
   movieInfo: {
     maxWidth: "380px",
-    marginTop: "6px",
-    marginLeft: "10px",
+    marginTop: "8px",
+    marginLeft: "12px",
     textOverflow: "ellipsis",
     overflow: "hidden",
     whiteSpace: "nowrap"
@@ -50,17 +50,15 @@ const MovieCard = (props) => {
       <Typography className={classes.movieInfo}>
         Year: {movie && movie.Year}
       </Typography>
-      <Button
-        className={classes.button}
-        onClick={addNominee}
-        disabled={
-          nominees.length === 5 ||
-          nominees.map((nominee) => nominee.imdbID).indexOf(movie.imdbID) > -1
-        }
-      >
-        <EmojiEventsIcon className={classes.buttonIcon} />
-        <Typography>Nominate Movie</Typography>
-      </Button>
+      {!(
+        nominees.length === 5 ||
+        nominees.map((nominee) => nominee.imdbID).indexOf(movie.imdbID) > -1
+      ) && (
+        <Button className={classes.button} onClick={addNominee}>
+          <EmojiEventsIcon className={classes.buttonIcon} />
+          <Typography>Nominate Movie</Typography>
+        </Button>
+      )}
     </Card>
   );
 };
