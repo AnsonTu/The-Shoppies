@@ -33,14 +33,17 @@ const NomineesList = (props) => {
       <Grid container justify="center">
         <div className={classes.cardContainer}>
           {nominees &&
-            nominees.map((movie) => (
-              <NomineeCard
-                key={`nominee-${movie.imdbID}`}
-                movie={movie}
-                nominees={nominees}
-                setNominees={setNominees}
-              />
-            ))}
+            nominees.map(
+              (movie) =>
+                !movie.Error && (
+                  <NomineeCard
+                    key={`nominee-${movie.imdbID}`}
+                    movie={movie}
+                    nominees={nominees}
+                    setNominees={setNominees}
+                  />
+                )
+            )}
         </div>
       </Grid>
     </Paper>

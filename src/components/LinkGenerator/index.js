@@ -37,9 +37,9 @@ const LinkGenerator = (props) => {
 
   const generateLink = () => {
     const nomineeIds = nominees.map((nominee) => nominee.imdbID);
-    let url = nomineeIds.length > 0 ? `?id[]=${nomineeIds[0]}` : "";
+    let url = nomineeIds.length > 0 ? `?id[0]=${nomineeIds[0]}` : "";
     for (let i = 1; i < nomineeIds.length; i++) {
-      url += `&id[]=${nomineeIds[i]}`;
+      url += `&id[${i}]=${nomineeIds[i]}`;
     }
     setLink(`${window.location.origin}/${url}`);
   };

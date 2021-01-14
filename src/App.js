@@ -10,16 +10,20 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [nominees, setNominees] = useState([]);
   let location = useLocation();
-  const nomineeIds = queryString.parse(location.search, {
-    arrayFormat: "bracket"
-  })["id"];
+  const nomineeIds = queryString.parse(location.search);
+  const nomineeKeys = nomineeIds && Object.keys(nomineeIds);
 
   useEffect(() => {
     let urls = [];
 
     if (nomineeIds) {
-      for (let i = 0; i < nomineeIds.length; i++) {
-        urls.push(`https://www.omdbapi.com/?i=${nomineeIds[i]}&apikey=211458f`);
+      const numOfNominees = nomineeKeys.length < 5 ? nomineeKeys.length : 5;
+      for (let i = 0; i < numOfNominees; i++) {
+        urls.push(
+          `https://www.omdbapi.com/?i=${
+            nomineeIds[nomineeKeys[i]]
+          }&apikey=211458f`
+        );
       }
       let requests = urls.map((url) => fetch(url));
       Promise.all(requests)
