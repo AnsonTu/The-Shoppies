@@ -23,7 +23,7 @@ const useStyle = makeStyles({
 
 const NomineesList = (props) => {
   const classes = useStyle();
-  const { nominees, setNominees } = props;
+  const { nominees, setNominees, handleOpenModal, handleNewPoster } = props;
 
   return (
     <Paper className={classes.paper} variant="outlined">
@@ -40,6 +40,8 @@ const NomineesList = (props) => {
                     movie={movie}
                     nominees={nominees}
                     setNominees={setNominees}
+                    handleOpenModal={handleOpenModal}
+                    handleNewPoster={handleNewPoster}
                   />
                 )
             )}
